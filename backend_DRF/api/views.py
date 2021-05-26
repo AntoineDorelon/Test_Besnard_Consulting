@@ -27,7 +27,7 @@ class PrinciplesViewset(viewsets.ModelViewSet):
         if numbers_of_principles < 12:
             return super().create(request, *args, **kwargs)
         else:
-            response = {'message': 'You cant create more than 12 values'}
+            response = {'message': 'You cant create more than 12 principles'}
             return Response(response, status.HTTP_400_BAD_REQUEST)
 
 
