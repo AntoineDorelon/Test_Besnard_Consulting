@@ -14,11 +14,13 @@
     <ValueEdit
         v-if="editedValue"
         :value="editedValue"
+        @value-updated="getValues()"
     />
 
     <h5 v-if="Object.keys(values).length < 4">
-      <font-awesome-icon class="plus" icon="plus"  />
-      Click here the + icon to add another principle
+      <font-awesome-icon class="plus" icon="plus"
+      @click="newValue()"/>
+      Click the "+" icon to add another value
     </h5>
   </div>
 </template>
@@ -41,11 +43,14 @@ export default {
   },
   methods: {
     valueEdit(value_id) {
-      console.log("movie to edit has id", value_id)
+      console.log("value to edit has id", value_id)
       this.editedValue = this.values.find( value => value.id === value_id)
     },
+    newValue() {
+      this.editedValue = {title: ''}
+    },
     valueDelete(value_id) {
-      console.log("movie to delete has id", value_id)
+      console.log("value to delete has id", value_id)
       fetch(`http://127.0.0.1:8000/api/values/${value_id}/`, {
         method: 'DELETE',
         headers: {
@@ -90,6 +95,7 @@ h5 {
   color: green;
   font-size: 200%;
   vertical-align: middle;
+  cursor: pointer;
 
 }
 </style>

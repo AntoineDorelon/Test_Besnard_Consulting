@@ -4,9 +4,11 @@
       {{ value.title.charAt(0).toUpperCase() + value.title.slice(1) }}
     </p>
 
-    <font-awesome-icon class="edit" icon="edit" @click="$emit('value-edit',value.id)" />
+    <font-awesome-icon class="edit" icon="edit"
+                       @click="$emit('value-edit',value.id)" />
 
-    <font-awesome-icon class="trash" icon="trash" @click="$emit('value-delete', value.id)" />
+    <font-awesome-icon class="trash" icon="trash"
+                       @click="$emit('value-delete', value.id)" />
 
   </div>
 </template>

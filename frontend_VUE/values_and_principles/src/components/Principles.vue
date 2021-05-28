@@ -12,12 +12,14 @@
     />
     <br/>
     <PrincipleEdit
-        v-if="selectedPrinciple"
-        :principle="selectedPrinciple"
+        v-if="editedPrinciple"
+        :principle="editedPrinciple"
+        @principle-updated="getPrinciples()"
     />
     <br/>
     <h5 v-if="Object.keys(principles).length < 12">
-      <font-awesome-icon class="plus" icon="plus"  />
+      <font-awesome-icon class="plus" icon="plus"
+      @click="newPrinciple()"/>
       Click here the + icon to add another principle
     </h5>
 
@@ -38,7 +40,7 @@ export default {
   data() {
     return {
       principles: [],
-      selectedPrinciple: null
+      editedPrinciple: null
     }
   },
   created() {
@@ -46,7 +48,11 @@ export default {
   },
   methods: {
     principleEdit(principle_id) {
+      this.editedPrinciple = this.principles.find( principle => principle.id === principle_id)
       console.log('principle to edit has id ', principle_id)
+    },
+    newPrinciple() {
+      this.editedPrinciple = {description: ''}
     },
     principleDelete(principle_id) {
       console.log('principle to delete has id ',principle_id)
