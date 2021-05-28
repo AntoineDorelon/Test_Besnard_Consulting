@@ -1,17 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header />
+    <br/>
+    <div class="layout">
+      <Values />
+      <Principles />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from "./components/Header";
+import Values from "./components/Values";
+import Principles from "./components/Principles";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Principles,
+    Values,
+    Header,
   }
 }
 </script>
@@ -24,5 +32,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 </style>
