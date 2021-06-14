@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ValueEdit contains the value in the placeholder 1`] = `
+<div>
+  <p><span style="text-decoration: underline;">Value :</span> &nbsp;
+    <label for="title">Test-value</label> <br> <input id="title" placeholder="Title"> <button type="button" class="btn btn-primary">
+      Save the modifications
+    </button>
+  </p>
+</div>
+`;
