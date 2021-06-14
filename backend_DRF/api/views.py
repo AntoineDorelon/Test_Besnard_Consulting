@@ -10,7 +10,6 @@ class ValuesViewset(viewsets.ModelViewSet):
 
     def create(self, request, *args, **kwargs):
         number_of_values = AgileValues.objects.all().count()
-        # print(f'there are already {number_of_values} values in database')
         if number_of_values < 4:
             return super().create(request, *args, **kwargs)
         else:
